@@ -43,7 +43,7 @@ def dans_la_fenetre_horaire(parametres):
 def chercher_deals(mots_cles, token):
     body = {
         "searchQueries": mots_cles,
-        "maxItems": 40,
+        "maxItems": 100,
         "maxPagesPerSource": 1,
         "includeExpired": False,
     }
