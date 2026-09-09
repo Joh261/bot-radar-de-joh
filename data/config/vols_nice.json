@@ -1,0 +1,5 @@
+{
+  "depart": ["CDG", "ORY"],
+  "destination": "NCE",
+  "plafond_euros": 50
+}
