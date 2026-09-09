@@ -1,0 +1,42 @@
+name: Veille vols Océan Indien
+
+on:
+  workflow_dispatch:
+    inputs:
+      forcer:
+        description: "Forcer la vérification immédiate"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Vérifier les prix
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+          FORCER_TEST: ${{ inputs.forcer }}
+        run: python scripts/vols_veille_ocean_indien.py
+
+      - name: Sauvegarder l'état mis à jour
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Mise à jour automatique de l'état veille Océan Indien"
+          file_pattern: data/etat/vols_ocean_indien_derniers_prix.json
