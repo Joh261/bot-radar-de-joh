@@ -1,1 +1,5 @@
-
+{
+  "depart_gare": "Gare de Lyon",
+  "destinations": ["Nice", "Antibes"],
+  "plafond_aller_retour_euros": 50
+}
