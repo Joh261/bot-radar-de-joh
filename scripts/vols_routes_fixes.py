@@ -82,7 +82,7 @@ def main():
             if meilleur is None:
                 continue
 
-            prix = meilleur["price"]
+            prix = meilleur["value"]
             if prix > plafond:
                 continue
 
