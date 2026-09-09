@@ -1,1 +1,5 @@
-
+{
+  "depart": ["CDG", "ORY"],
+  "zone": "europe",
+  "budget_max_euros": 60
+}
