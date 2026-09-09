@@ -10,7 +10,7 @@ PARAMETRES_PATH = "data/config/parametres_globaux.json"
 CONFIG_PATH = "data/config/deals_motscles.json"
 ETAT_PATH = "data/etat/deals_deja_envoyes.json"
 
-URL_APIFY = "https://api.apify.com/v2/acts/automation-lab~dealabs-deals-scraper/run-sync-get-dataset-items"
+URL_APIFY = "https://api.apify.com/v2/actors/saswave~dealabs-scraper/run-sync-get-dataset-items"
 
 
 def charger_json(chemin):
@@ -40,18 +40,24 @@ def dans_la_fenetre_horaire(parametres):
     return False
 
 
+def construire_urls_recherche(mots_cles):
+    urls = []
+    for mot in mots_cles:
+        mot_encode = mot.replace(" ", "+")
+        urls.append(f"https://www.dealabs.com/search?q={mot_encode}")
+    return urls
+
+
 def chercher_deals(mots_cles, token):
     body = {
-        "searchQueries": mots_cles,
-        "maxItems": 100,
-        "maxPagesPerSource": 1,
-        "includeExpired": False,
+        "urls": construire_urls_recherche(mots_cles),
+        "max_page": 1,
     }
     reponse = requests.post(
         URL_APIFY,
         params={"token": token},
         json=body,
-        timeout=60,
+        timeout=120,
     )
     reponse.raise_for_status()
     return reponse.json()
@@ -91,14 +97,16 @@ def main():
     print(f"{len(deals)} deals récupérés au total")
 
     for deal in deals:
-        deal_id = deal.get("dealId")
-        discount = deal.get("discountPercentage")
+        deal_id = deal.get("threadId")
+        discount = deal.get("percentage")
         titre = deal.get("title", "Deal sans titre")
         prix = deal.get("price")
-        merchant = deal.get("merchant", "")
-        lien = deal.get("dealUrl", "")
+        merchant_info = deal.get("merchant") or {}
+        merchant = merchant_info.get("merchantName", "")
+        lien = deal.get("shareableLink") or deal.get("link", "")
+        expire = deal.get("isExpired", False)
 
-        if deal_id is None or discount is None:
+        if deal_id is None or discount is None or expire:
             continue
 
         print(f"{titre}, {discount}% de réduction")
