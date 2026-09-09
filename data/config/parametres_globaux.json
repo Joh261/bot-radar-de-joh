@@ -5,6 +5,7 @@
     "vols_routes_fixes": true,
     "vols_veille_ocean_indien": true,
     "vols_veille_europe": true,
+    "vols_nice": true,
     "train_veille": true,
     "deals_multisources": true
   }
