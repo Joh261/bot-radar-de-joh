@@ -1,9 +1,0 @@
-{
-  "sources": ["dealabs", "radins", "idealo"],
-  "seuil_reduction_pourcent": 50,
-  "mots_cles": [
-    "playstation", "jeu video", "jeu playstation", "vol hotel",
-    "fnac", "amazon", "joybuy", "cdiscount",
-    "vetements homme", "maillot de foot", "composants pc", "apple"
-  ]
-}
