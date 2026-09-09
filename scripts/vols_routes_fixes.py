@@ -4,23 +4,11 @@ import requests
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-# Heures cibles à Paris, avec une tolérance de quinze minutes
-HEURES_CIBLES = ["08:45", "12:00", "18:00", "23:00"]
-TOLERANCE_MINUTES = 15
+NOM_MODULE = "vols_routes_fixes"
 
+PARAMETRES_PATH = "data/config/parametres_globaux.json"
 CONFIG_PATH = "data/config/routes_fixes_vols.json"
 ETAT_PATH = "data/etat/vols_derniers_prix.json"
-
-
-def dans_la_fenetre_horaire():
-    maintenant = datetime.now(ZoneInfo("Europe/Paris"))
-    for heure in HEURES_CIBLES:
-        h, m = map(int, heure.split(":"))
-        cible = maintenant.replace(hour=h, minute=m, second=0, microsecond=0)
-        ecart = abs((maintenant - cible).total_seconds()) / 60
-        if ecart <= TOLERANCE_MINUTES:
-            return True
-    return False
 
 
 def charger_json(chemin):
@@ -31,6 +19,23 @@ def charger_json(chemin):
 def sauvegarder_json(chemin, contenu):
     with open(chemin, "w", encoding="utf-8") as f:
         json.dump(contenu, f, ensure_ascii=False, indent=2)
+
+
+def module_actif(parametres):
+    return parametres.get("modules_actifs", {}).get(NOM_MODULE, True)
+
+
+def dans_la_fenetre_horaire(parametres):
+    heures_cibles = parametres.get("heures_cibles", [])
+    tolerance = parametres.get("tolerance_minutes", 15)
+    maintenant = datetime.now(ZoneInfo("Europe/Paris"))
+    for heure in heures_cibles:
+        h, m = map(int, heure.split(":"))
+        cible = maintenant.replace(hour=h, minute=m, second=0, microsecond=0)
+        ecart = abs((maintenant - cible).total_seconds()) / 60
+        if ecart <= tolerance:
+            return True
+    return False
 
 
 def chercher_prix(depart, destination, token):
@@ -60,8 +65,13 @@ def envoyer_telegram(message):
 
 def main():
     forcer = os.environ.get("FORCER_TEST", "false").lower() == "true"
+    parametres = charger_json(PARAMETRES_PATH)
 
-    if not forcer and not dans_la_fenetre_horaire():
+    if not module_actif(parametres):
+        print("Module désactivé dans les paramètres globaux.")
+        return
+
+    if not forcer and not dans_la_fenetre_horaire(parametres):
         print("Hors fenêtre horaire, aucune vérification.")
         return
 
