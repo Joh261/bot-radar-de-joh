@@ -1,1 +1,8 @@
-
+{
+  "depart": ["CDG", "ORY"],
+  "routes": [
+    {"destination": "La Réunion", "code": "RUN", "plafond_euros": 650},
+    {"destination": "Nosy Be", "code": "NOS", "plafond_euros": 700},
+    {"destination": "Antananarivo", "code": "TNR", "plafond_euros": 700}
+  ]
+}
