@@ -48,7 +48,7 @@ def chercher_prix(depart, destination, token):
     resultat = reponse.json()
     if not resultat.get("success") or not resultat.get("data"):
         return None
-   return min(resultat["data"], key=lambda x: x["value"])
+    return min(resultat["data"], key=lambda x: x["value"])
 
 
 def envoyer_telegram(message):
@@ -93,7 +93,7 @@ def main():
             message = (
                 f"Vol repéré, {depart} vers {route['destination']}\n"
                 f"{prix} euros, sous ton plafond de {plafond} euros\n"
-                f"Départ {meilleur.get('departure_at', 'date non précisée')}"
+                f"Départ {meilleur.get('depart_date', 'date non précisée')}"
             )
             envoyer_telegram(message)
 
