@@ -1,5 +1,6 @@
 {
   "depart": ["CDG", "ORY"],
   "zone": "ocean_indien",
-  "budget_max_euros": 700
+  "budget_max_euros": 700,
+  "codes_destinations": ["RUN", "MRU", "TNR", "NOS", "SEZ", "HAH", "DZA"]
 }
