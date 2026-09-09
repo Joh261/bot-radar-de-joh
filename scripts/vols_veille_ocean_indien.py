@@ -38,21 +38,22 @@ def dans_la_fenetre_horaire(parametres):
     return False
 
 
-def chercher_meilleurs_prix(depart, token):
+def chercher_prix(depart, destination, token):
     url = "https://api.travelpayouts.com/v2/prices/latest"
     params = {
         "origin": depart,
+        "destination": destination,
         "currency": "eur",
         "sorting": "price",
-        "limit": 30,
+        "limit": 5,
         "token": token,
     }
     reponse = requests.get(url, params=params, timeout=20)
     reponse.raise_for_status()
     resultat = reponse.json()
-    if not resultat.get("success"):
-        return []
-    return resultat.get("data", [])
+    if not resultat.get("success") or not resultat.get("data"):
+        return None
+    return min(resultat["data"], key=lambda x: x["value"])
 
 
 def envoyer_telegram(message):
@@ -83,17 +84,18 @@ def main():
     historique = etat.get("historique", [])
 
     budget_max = config["budget_max_euros"]
-    codes_zone = set(config["codes_destinations"])
+    codes_zone = config["codes_destinations"]
 
     for depart in config["depart"]:
-        resultats = chercher_meilleurs_prix(depart, token_travelpayouts)
-
-        for offre in resultats:
-            destination = offre.get("destination")
-            if destination not in codes_zone:
+        for destination in codes_zone:
+            meilleur = chercher_prix(depart, destination, token_travelpayouts)
+            if meilleur is None:
+                print(f"Aucun résultat pour {depart}-{destination}")
                 continue
 
-            prix = offre["value"]
+            prix = meilleur["value"]
+            print(f"{depart}-{destination}, prix trouvé {prix} euros")
+
             if prix > budget_max:
                 continue
 
@@ -104,7 +106,7 @@ def main():
             message = (
                 f"Opportunité Océan Indien, {depart} vers {destination}\n"
                 f"{prix} euros, sous ton budget de {budget_max} euros\n"
-                f"Départ {offre.get('depart_date', 'date non précisée')}"
+                f"Départ {meilleur.get('depart_date', 'date non précisée')}"
             )
             envoyer_telegram(message)
 
