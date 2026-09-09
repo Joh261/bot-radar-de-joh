@@ -59,6 +59,24 @@
       "route": "ORY-NCE",
       "prix": 60,
       "date_alerte": "2026-09-09T15:14:39.186974+02:00"
+    },
+    {
+      "cle": "CDG-VCE-54",
+      "route": "CDG-VCE",
+      "prix": 54,
+      "date_alerte": "2026-09-09T17:54:14.896128+02:00"
+    },
+    {
+      "cle": "CDG-LON-57",
+      "route": "CDG-LON",
+      "prix": 57,
+      "date_alerte": "2026-09-09T17:54:15.409181+02:00"
+    },
+    {
+      "cle": "ORY-NCE-59",
+      "route": "ORY-NCE",
+      "prix": 59,
+      "date_alerte": "2026-09-09T17:54:16.034294+02:00"
     }
   ]
 }
