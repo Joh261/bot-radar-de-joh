@@ -59,9 +59,14 @@ def envoyer_telegram(message):
 
 
 def main():
-    if not dans_la_fenetre_horaire():
+    forcer = os.environ.get("FORCER_TEST", "false").lower() == "true"
+
+    if not forcer and not dans_la_fenetre_horaire():
         print("Hors fenêtre horaire, aucune vérification.")
         return
+
+    if forcer:
+        print("Mode forcé activé, vérification immédiate.")
 
     token_travelpayouts = os.environ["TRAVELPAYOUTS_TOKEN"]
     config = charger_json(CONFIG_PATH)
