@@ -77,6 +77,12 @@
       "route": "ORY-NCE",
       "prix": 59,
       "date_alerte": "2026-09-09T17:54:16.034294+02:00"
+    },
+    {
+      "cle": "CDG-KRK-56",
+      "route": "CDG-KRK",
+      "prix": 56,
+      "date_alerte": "2026-09-09T18:14:55.090947+02:00"
     }
   ]
 }
