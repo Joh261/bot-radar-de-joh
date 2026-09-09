@@ -48,7 +48,7 @@ def chercher_prix(depart, destination, token):
     resultat = reponse.json()
     if not resultat.get("success") or not resultat.get("data"):
         return None
-    return min(resultat["data"], key=lambda x: x["price"])
+   return min(resultat["data"], key=lambda x: x["value"])
 
 
 def envoyer_telegram(message):
