@@ -10,6 +10,9 @@ on:
   schedule:
     - cron: "*/15 * * * *"
 
+permissions:
+  contents: write
+
 jobs:
   veille:
     runs-on: ubuntu-latest
