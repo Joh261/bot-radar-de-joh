@@ -53,6 +53,12 @@
       "route": "ORY-NCE",
       "prix": 58,
       "date_alerte": "2026-09-09T14:16:31.540257+02:00"
+    },
+    {
+      "cle": "ORY-NCE-60",
+      "route": "ORY-NCE",
+      "prix": 60,
+      "date_alerte": "2026-09-09T15:14:39.186974+02:00"
     }
   ]
 }
