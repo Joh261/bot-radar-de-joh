@@ -53,6 +53,24 @@
       "route": "ORY-RUN",
       "prix": 485,
       "date_alerte": "2026-09-09T18:06:21.624794+02:00"
+    },
+    {
+      "cle": "CDG-RUN-526",
+      "route": "CDG-RUN",
+      "prix": 526,
+      "date_alerte": "2026-09-09T22:49:59.344365+02:00"
+    },
+    {
+      "cle": "CDG-SEZ-588",
+      "route": "CDG-SEZ",
+      "prix": 588,
+      "date_alerte": "2026-09-09T22:50:00.789711+02:00"
+    },
+    {
+      "cle": "ORY-SEZ-694",
+      "route": "ORY-SEZ",
+      "prix": 694,
+      "date_alerte": "2026-09-09T22:50:03.043408+02:00"
     }
   ]
 }
