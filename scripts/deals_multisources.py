@@ -67,7 +67,7 @@ def envoyer_telegram(message):
     token = os.environ["TELEGRAM_BOT_TOKEN"]
     chat_id = os.environ["TELEGRAM_CHAT_ID"]
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    requests.post(url, data={"chat_id": chat_id, "text": message})
+    requests.post(url, data={"chat_id": chat_id, "text": message}, params={"parse_mode": "Markdown"})
 
 
 def main():
@@ -118,7 +118,7 @@ def main():
             continue
 
         message = (
-            f"Deal repéré, {discount}% de réduction\n"
+            f"🔥 *Deal repéré, {discount}% de réduction*\n"
             f"{titre}\n"
             f"{prix} euros" + (f", chez {merchant}" if merchant else "") + "\n"
             f"{lien}"
