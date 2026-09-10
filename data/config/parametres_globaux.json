@@ -1,5 +1,6 @@
 {
   "heures_cibles": ["04:55", "08:45", "12:00", "15:00", "18:00", "23:00"],
+  "heures_deals": ["08:45", "18:00"],
   "tolerance_minutes": 15,
   "modules_actifs": {
     "vols_routes_fixes": true,
