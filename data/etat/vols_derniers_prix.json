@@ -54,6 +54,18 @@
       "route": "CDG-RUN",
       "prix": 526,
       "date_alerte": "2026-09-09T22:55:05.556208+02:00"
+    },
+    {
+      "cle": "CDG-RUN-523",
+      "route": "CDG-RUN",
+      "prix": 523,
+      "date_alerte": "2026-09-10T12:11:32.624730+02:00"
+    },
+    {
+      "cle": "ORY-RUN-482",
+      "route": "ORY-RUN",
+      "prix": 482,
+      "date_alerte": "2026-09-10T12:11:33.847105+02:00"
     }
   ]
 }
