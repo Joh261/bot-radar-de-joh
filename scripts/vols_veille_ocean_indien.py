@@ -60,7 +60,7 @@ def envoyer_telegram(message):
     token = os.environ["TELEGRAM_BOT_TOKEN"]
     chat_id = os.environ["TELEGRAM_CHAT_ID"]
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    requests.post(url, data={"chat_id": chat_id, "text": message})
+    requests.post(url, data={"chat_id": chat_id, "text": message}, params={"parse_mode": "Markdown"})
 
 
 def main():
@@ -104,7 +104,7 @@ def main():
                 continue
 
             message = (
-                f"Opportunité Océan Indien, {depart} vers {destination}\n"
+                f"🌴 *Opportunité Océan Indien, {depart} vers {destination}*\n"
                 f"{prix} euros, sous ton budget de {budget_max} euros\n"
                 f"Départ {meilleur.get('depart_date', 'date non précisée')}"
             )
