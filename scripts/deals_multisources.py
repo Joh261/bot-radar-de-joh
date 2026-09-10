@@ -28,7 +28,7 @@ def module_actif(parametres):
 
 
 def dans_la_fenetre_horaire(parametres):
-    heures_cibles = parametres.get("heures_cibles", [])
+    heures_cibles = parametres.get("heures_deals", [])
     tolerance = parametres.get("tolerance_minutes", 15)
     maintenant = datetime.now(ZoneInfo("Europe/Paris"))
     for heure in heures_cibles:
