@@ -221,6 +221,24 @@
       "route": "ORY-SEZ",
       "prix": 697,
       "date_alerte": "2026-09-11T11:51:54.799522+02:00"
+    },
+    {
+      "cle": "CDG-MRU-696",
+      "route": "CDG-MRU",
+      "prix": 696,
+      "date_alerte": "2026-09-11T12:06:07.174111+02:00"
+    },
+    {
+      "cle": "ORY-RUN-484",
+      "route": "ORY-RUN",
+      "prix": 484,
+      "date_alerte": "2026-09-11T12:06:08.807647+02:00"
+    },
+    {
+      "cle": "ORY-SEZ-693",
+      "route": "ORY-SEZ",
+      "prix": 693,
+      "date_alerte": "2026-09-11T12:06:10.322978+02:00"
     }
   ]
 }
