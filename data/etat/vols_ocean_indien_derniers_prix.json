@@ -167,6 +167,30 @@
       "route": "ORY-SEZ",
       "prix": 685,
       "date_alerte": "2026-09-10T22:50:31.516624+02:00"
+    },
+    {
+      "cle": "CDG-RUN-525",
+      "route": "CDG-RUN",
+      "prix": 525,
+      "date_alerte": "2026-09-11T04:51:30.993811+02:00"
+    },
+    {
+      "cle": "CDG-SEZ-587",
+      "route": "CDG-SEZ",
+      "prix": 587,
+      "date_alerte": "2026-09-11T04:51:32.481557+02:00"
+    },
+    {
+      "cle": "ORY-RUN-483",
+      "route": "ORY-RUN",
+      "prix": 483,
+      "date_alerte": "2026-09-11T04:51:33.523828+02:00"
+    },
+    {
+      "cle": "ORY-SEZ-692",
+      "route": "ORY-SEZ",
+      "prix": 692,
+      "date_alerte": "2026-09-11T04:51:34.860178+02:00"
     }
   ]
 }
