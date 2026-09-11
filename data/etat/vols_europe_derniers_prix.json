@@ -101,6 +101,12 @@
       "route": "ORY-OPO",
       "prix": 56,
       "date_alerte": "2026-09-10T17:53:20.277710+02:00"
+    },
+    {
+      "cle": "ORY-IBZ-59",
+      "route": "ORY-IBZ",
+      "prix": 59,
+      "date_alerte": "2026-09-11T04:54:01.555617+02:00"
     }
   ]
 }
