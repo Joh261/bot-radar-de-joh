@@ -1,18 +1,6 @@
 {
   "historique": [
     {
-      "cle": "CDG-SEZ-588",
-      "route": "CDG-SEZ",
-      "prix": 588,
-      "date_alerte": "2026-09-09T22:50:00.789711+02:00"
-    },
-    {
-      "cle": "ORY-SEZ-694",
-      "route": "ORY-SEZ",
-      "prix": 694,
-      "date_alerte": "2026-09-09T22:50:03.043408+02:00"
-    },
-    {
       "cle": "CDG-RUN-523",
       "route": "CDG-RUN",
       "prix": 523,
@@ -299,6 +287,18 @@
       "route": "ORY-RUN",
       "prix": 488,
       "date_alerte": "2026-09-13T14:54:11.395149+02:00"
+    },
+    {
+      "cle": "CDG-RUN-492",
+      "route": "CDG-RUN",
+      "prix": 492,
+      "date_alerte": "2026-09-14T04:51:36.018978+02:00"
+    },
+    {
+      "cle": "ORY-RUN-489",
+      "route": "ORY-RUN",
+      "prix": 489,
+      "date_alerte": "2026-09-14T04:51:38.003204+02:00"
     }
   ]
 }
