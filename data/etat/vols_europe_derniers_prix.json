@@ -155,6 +155,12 @@
       "route": "ORY-VCE",
       "prix": 57,
       "date_alerte": "2026-09-16T17:55:40.660347+02:00"
+    },
+    {
+      "cle": "ORY-MIL-54",
+      "route": "ORY-MIL",
+      "prix": 54,
+      "date_alerte": "2026-09-16T22:53:56.774979+02:00"
     }
   ]
 }
