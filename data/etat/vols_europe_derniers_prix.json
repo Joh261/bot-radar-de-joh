@@ -137,6 +137,18 @@
       "route": "ORY-IBZ",
       "prix": 60,
       "date_alerte": "2026-09-12T04:53:04.687605+02:00"
+    },
+    {
+      "cle": "CDG-MIL-36",
+      "route": "CDG-MIL",
+      "prix": 36,
+      "date_alerte": "2026-09-16T11:54:38.016813+02:00"
+    },
+    {
+      "cle": "CDG-LON-59",
+      "route": "CDG-LON",
+      "prix": 59,
+      "date_alerte": "2026-09-16T11:54:38.548613+02:00"
     }
   ]
 }
