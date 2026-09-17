@@ -161,6 +161,12 @@
       "route": "ORY-MIL",
       "prix": 54,
       "date_alerte": "2026-09-16T22:53:56.774979+02:00"
+    },
+    {
+      "cle": "CDG-LON-56",
+      "route": "CDG-LON",
+      "prix": 56,
+      "date_alerte": "2026-09-17T17:54:02.070011+02:00"
     }
   ]
 }
