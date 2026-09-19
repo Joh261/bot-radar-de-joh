@@ -179,6 +179,12 @@
       "route": "ORY-VCE",
       "prix": 58,
       "date_alerte": "2026-09-18T04:53:18.449096+02:00"
+    },
+    {
+      "cle": "CDG-MIL-38",
+      "route": "CDG-MIL",
+      "prix": 38,
+      "date_alerte": "2026-09-19T04:43:53.095823+02:00"
     }
   ]
 }
