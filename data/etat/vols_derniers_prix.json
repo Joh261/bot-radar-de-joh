@@ -2,12 +2,6 @@
   "derniere_alerte": {},
   "historique": [
     {
-      "cle": "CDG-RUN-530",
-      "route": "CDG-RUN",
-      "prix": 530,
-      "date_alerte": "2026-09-09T11:43:36.513049+02:00"
-    },
-    {
       "cle": "ORY-RUN-492",
       "route": "ORY-RUN",
       "prix": 492,
@@ -294,6 +288,18 @@
       "route": "ORY-RUN",
       "prix": 510,
       "date_alerte": "2026-09-21T11:56:18.652045+02:00"
+    },
+    {
+      "cle": "CDG-RUN-555",
+      "route": "CDG-RUN",
+      "prix": 555,
+      "date_alerte": "2026-09-21T12:12:59.451598+02:00"
+    },
+    {
+      "cle": "ORY-RUN-511",
+      "route": "ORY-RUN",
+      "prix": 511,
+      "date_alerte": "2026-09-21T12:13:00.741634+02:00"
     }
   ]
 }
