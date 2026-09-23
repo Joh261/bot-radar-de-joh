@@ -209,6 +209,12 @@
       "route": "ORY-BCN",
       "prix": 59,
       "date_alerte": "2026-09-23T04:53:41.820165+02:00"
+    },
+    {
+      "cle": "CDG-MIL-41",
+      "route": "CDG-MIL",
+      "prix": 41,
+      "date_alerte": "2026-09-23T22:52:29.080798+02:00"
     }
   ]
 }
