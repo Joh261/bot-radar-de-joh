@@ -1,30 +1,6 @@
 {
   "historique": [
     {
-      "cle": "ORY-RUN-516",
-      "route": "ORY-RUN",
-      "prix": 516,
-      "date_alerte": "2026-09-23T11:51:58.967693+02:00"
-    },
-    {
-      "cle": "CDG-MRU-668",
-      "route": "CDG-MRU",
-      "prix": 668,
-      "date_alerte": "2026-09-23T12:05:56.497781+02:00"
-    },
-    {
-      "cle": "CDG-SEZ-627",
-      "route": "CDG-SEZ",
-      "prix": 627,
-      "date_alerte": "2026-09-23T12:05:57.980540+02:00"
-    },
-    {
-      "cle": "CDG-SEZ-626",
-      "route": "CDG-SEZ",
-      "prix": 626,
-      "date_alerte": "2026-09-23T14:47:22.187670+02:00"
-    },
-    {
       "cle": "CDG-RUN-562",
       "route": "CDG-RUN",
       "prix": 562,
@@ -299,6 +275,30 @@
       "route": "CDG-RUN",
       "prix": 572,
       "date_alerte": "2026-09-30T15:00:03.443450+02:00"
+    },
+    {
+      "cle": "CDG-RUN-565",
+      "route": "CDG-RUN",
+      "prix": 565,
+      "date_alerte": "2026-09-30T17:57:24.931449+02:00"
+    },
+    {
+      "cle": "CDG-MRU-683",
+      "route": "CDG-MRU",
+      "prix": 683,
+      "date_alerte": "2026-09-30T17:57:25.496475+02:00"
+    },
+    {
+      "cle": "CDG-SEZ-653",
+      "route": "CDG-SEZ",
+      "prix": 653,
+      "date_alerte": "2026-09-30T17:57:26.710841+02:00"
+    },
+    {
+      "cle": "ORY-RUN-503",
+      "route": "ORY-RUN",
+      "prix": 503,
+      "date_alerte": "2026-09-30T17:57:27.617642+02:00"
     }
   ]
 }
