@@ -57,7 +57,7 @@ def chercher_deals(mots_cles, token):
     }
     reponse = requests.post(
         URL_APIFY,
-        params={"token": token},
+        params={"token": token, "maxItems": 100},
         json=body,
         timeout=120,
     )
