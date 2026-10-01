@@ -38,21 +38,41 @@ def dans_la_fenetre_horaire(parametres):
     return False
 
 
-def chercher_meilleurs_prix(depart, token):
-    url = "https://api.travelpayouts.com/v2/prices/latest"
+def chercher_toutes_destinations(depart, token):
+    url = "https://api.travelpayouts.com/v1/prices/cheap"
     params = {
         "origin": depart,
+        "destination": "-",
         "currency": "eur",
-        "sorting": "price",
-        "limit": 30,
         "token": token,
     }
     reponse = requests.get(url, params=params, timeout=20)
     reponse.raise_for_status()
     resultat = reponse.json()
     if not resultat.get("success"):
-        return []
-    return resultat.get("data", [])
+        return {}
+    return resultat.get("data", {})
+
+
+def parser_date(valeur):
+    if not valeur:
+        return None
+    try:
+        return datetime.fromisoformat(valeur.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def construire_lien(depart, destination, meilleur):
+    depart_dt = parser_date(meilleur.get("departure_at"))
+    if depart_dt is None:
+        return ""
+    ddmm_aller = depart_dt.strftime("%d%m")
+    retour_dt = parser_date(meilleur.get("return_at"))
+    if retour_dt:
+        ddmm_retour = retour_dt.strftime("%d%m")
+        return f"https://www.aviasales.com/search/{depart}{ddmm_aller}{destination}{ddmm_retour}1"
+    return f"https://www.aviasales.com/search/{depart}{ddmm_aller}{destination}1"
 
 
 def envoyer_telegram(message):
@@ -85,11 +105,11 @@ def main():
     budget_max = config["budget_max_euros"]
 
     for depart in config["depart"]:
-        resultats = chercher_meilleurs_prix(depart, token_travelpayouts)
+        toutes_destinations = chercher_toutes_destinations(depart, token_travelpayouts)
 
-        for offre in resultats:
-            destination = offre.get("destination")
-            prix = offre["value"]
+        for destination, options in toutes_destinations.items():
+            meilleur = min(options.values(), key=lambda x: x["price"])
+            prix = meilleur["price"]
             print(f"{depart}-{destination}, prix trouvé {prix} euros")
 
             if prix > budget_max:
@@ -99,10 +119,16 @@ def main():
             if cle in [h.get("cle") for h in historique[-30:]]:
                 continue
 
+            depart_dt = parser_date(meilleur.get("departure_at"))
+            date_affichee = depart_dt.strftime("%d/%m/%Y") if depart_dt else "date non précisée"
+            compagnie = meilleur.get("airline", "non précisée")
+            lien = construire_lien(depart, destination, meilleur)
+
             message = (
                 f"🇪🇺 *Petit prix Europe, {depart} vers {destination}*\n"
                 f"{prix} euros, sous ton plafond de {budget_max} euros\n"
-                f"Départ {offre.get('depart_date', 'date non précisée')}"
+                f"Départ le {date_affichee}, compagnie {compagnie}\n"
+                f"{lien}"
             )
             envoyer_telegram(message)
 
