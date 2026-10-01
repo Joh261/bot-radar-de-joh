@@ -39,13 +39,11 @@ def dans_la_fenetre_horaire(parametres):
 
 
 def chercher_prix(depart, destination, token):
-    url = "https://api.travelpayouts.com/v2/prices/latest"
+    url = "https://api.travelpayouts.com/v1/prices/cheap"
     params = {
         "origin": depart,
         "destination": destination,
         "currency": "eur",
-        "sorting": "price",
-        "limit": 5,
         "token": token,
     }
     reponse = requests.get(url, params=params, timeout=20)
@@ -53,7 +51,31 @@ def chercher_prix(depart, destination, token):
     resultat = reponse.json()
     if not resultat.get("success") or not resultat.get("data"):
         return None
-    return min(resultat["data"], key=lambda x: x["value"])
+    options = resultat["data"].get(destination)
+    if not options:
+        return None
+    return min(options.values(), key=lambda x: x["price"])
+
+
+def parser_date(valeur):
+    if not valeur:
+        return None
+    try:
+        return datetime.fromisoformat(valeur.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def construire_lien(depart, destination, meilleur):
+    depart_dt = parser_date(meilleur.get("departure_at"))
+    if depart_dt is None:
+        return ""
+    ddmm_aller = depart_dt.strftime("%d%m")
+    retour_dt = parser_date(meilleur.get("return_at"))
+    if retour_dt:
+        ddmm_retour = retour_dt.strftime("%d%m")
+        return f"https://www.aviasales.com/search/{depart}{ddmm_aller}{destination}{ddmm_retour}1"
+    return f"https://www.aviasales.com/search/{depart}{ddmm_aller}{destination}1"
 
 
 def envoyer_telegram(message):
@@ -92,7 +114,7 @@ def main():
             if meilleur is None:
                 continue
 
-            prix = meilleur["value"]
+            prix = meilleur["price"]
             if prix > plafond:
                 continue
 
@@ -100,10 +122,16 @@ def main():
             if cle in [h.get("cle") for h in historique[-20:]]:
                 continue
 
+            depart_dt = parser_date(meilleur.get("departure_at"))
+            date_affichee = depart_dt.strftime("%d/%m/%Y") if depart_dt else "date non précisée"
+            compagnie = meilleur.get("airline", "non précisée")
+            lien = construire_lien(depart, destination, meilleur)
+
             message = (
                 f"✈️ *Vol repéré, {depart} vers {route['destination']}*\n"
                 f"{prix} euros, sous ton plafond de {plafond} euros\n"
-                f"Départ {meilleur.get('depart_date', 'date non précisée')}"
+                f"Départ le {date_affichee}, compagnie {compagnie}\n"
+                f"{lien}"
             )
             envoyer_telegram(message)
 
