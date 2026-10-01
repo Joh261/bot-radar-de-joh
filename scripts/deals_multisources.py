@@ -52,6 +52,8 @@ def chercher_deals(mots_cles, token):
     body = {
         "urls": construire_urls_recherche(mots_cles),
         "max_page": 1,
+        "pub_min_date": "",
+        "hot_min_date": "",
     }
     reponse = requests.post(
         URL_APIFY,
@@ -59,6 +61,9 @@ def chercher_deals(mots_cles, token):
         json=body,
         timeout=120,
     )
+    if reponse.status_code >= 400:
+        print("Détail de l'erreur Apify :")
+        print(reponse.text)
     reponse.raise_for_status()
     return reponse.json()
 
