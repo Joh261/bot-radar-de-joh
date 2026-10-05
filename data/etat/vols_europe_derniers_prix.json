@@ -251,6 +251,12 @@
       "route": "ORY-PMI",
       "prix": 59,
       "date_alerte": "2026-10-05T04:45:45.757759+02:00"
+    },
+    {
+      "cle": "CDG-MIL-47",
+      "route": "CDG-MIL",
+      "prix": 47,
+      "date_alerte": "2026-10-05T17:47:33.861315+02:00"
     }
   ]
 }
