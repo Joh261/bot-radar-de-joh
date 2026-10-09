@@ -275,6 +275,12 @@
       "route": "CDG-MIL",
       "prix": 51,
       "date_alerte": "2026-10-08T22:47:15.898682+02:00"
+    },
+    {
+      "cle": "CDG-MIL-45",
+      "route": "CDG-MIL",
+      "prix": 45,
+      "date_alerte": "2026-10-09T04:57:45.355121+02:00"
     }
   ]
 }
