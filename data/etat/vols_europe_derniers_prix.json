@@ -293,6 +293,12 @@
       "route": "ORY-PMI",
       "prix": 57,
       "date_alerte": "2026-10-13T22:47:04.406552+02:00"
+    },
+    {
+      "cle": "CDG-LON-60",
+      "route": "CDG-LON",
+      "prix": 60,
+      "date_alerte": "2026-10-16T11:52:05.505385+02:00"
     }
   ]
 }
