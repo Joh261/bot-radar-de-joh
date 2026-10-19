@@ -1,12 +1,6 @@
 {
   "historique": [
     {
-      "cle": "CDG-RUN-571",
-      "route": "CDG-RUN",
-      "prix": 571,
-      "date_alerte": "2026-09-29T17:46:42.312891+02:00"
-    },
-    {
       "cle": "CDG-SEZ-660",
       "route": "CDG-SEZ",
       "prix": 660,
@@ -299,6 +293,12 @@
       "route": "CDG-RUN",
       "prix": 584,
       "date_alerte": "2026-10-17T22:57:39.692654+02:00"
+    },
+    {
+      "cle": "ORY-RUN-534",
+      "route": "ORY-RUN",
+      "prix": 534,
+      "date_alerte": "2026-10-19T08:50:47.476138+02:00"
     }
   ]
 }
