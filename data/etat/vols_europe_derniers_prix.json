@@ -1,12 +1,6 @@
 {
   "historique": [
     {
-      "cle": "CDG-VCE-55",
-      "route": "CDG-VCE",
-      "prix": 55,
-      "date_alerte": "2026-09-09T14:16:27.423981+02:00"
-    },
-    {
       "cle": "CDG-KRK-57",
       "route": "CDG-KRK",
       "prix": 57,
@@ -299,6 +293,12 @@
       "route": "CDG-MIL",
       "prix": 52,
       "date_alerte": "2026-10-30T14:53:59.546848+01:00"
+    },
+    {
+      "cle": "CDG-LON-50",
+      "route": "CDG-LON",
+      "prix": 50,
+      "date_alerte": "2026-11-01T08:56:01.502820+01:00"
     }
   ]
 }
