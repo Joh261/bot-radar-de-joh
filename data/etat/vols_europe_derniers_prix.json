@@ -1,30 +1,6 @@
 {
   "historique": [
     {
-      "cle": "CDG-KRK-56",
-      "route": "CDG-KRK",
-      "prix": 56,
-      "date_alerte": "2026-09-09T18:14:55.090947+02:00"
-    },
-    {
-      "cle": "ORY-VCE-52",
-      "route": "ORY-VCE",
-      "prix": 52,
-      "date_alerte": "2026-09-10T12:14:06.667597+02:00"
-    },
-    {
-      "cle": "ORY-MIL-57",
-      "route": "ORY-MIL",
-      "prix": 57,
-      "date_alerte": "2026-09-10T14:46:56.145134+02:00"
-    },
-    {
-      "cle": "ORY-OPO-56",
-      "route": "ORY-OPO",
-      "prix": 56,
-      "date_alerte": "2026-09-10T17:53:20.277710+02:00"
-    },
-    {
       "cle": "ORY-IBZ-59",
       "route": "ORY-IBZ",
       "prix": 59,
@@ -299,6 +275,30 @@
       "route": "ORY-VCE",
       "prix": 52,
       "date_alerte": "2026-11-15T17:51:45.930293+01:00"
+    },
+    {
+      "cle": "ORY-BCN-55",
+      "route": "ORY-BCN",
+      "prix": 55,
+      "date_alerte": "2026-11-17T11:59:15.348814+01:00"
+    },
+    {
+      "cle": "ORY-MIL-58",
+      "route": "ORY-MIL",
+      "prix": 58,
+      "date_alerte": "2026-11-17T11:59:15.741622+01:00"
+    },
+    {
+      "cle": "ORY-PSA-59",
+      "route": "ORY-PSA",
+      "prix": 59,
+      "date_alerte": "2026-11-17T11:59:16.190639+01:00"
+    },
+    {
+      "cle": "ORY-VCE-60",
+      "route": "ORY-VCE",
+      "prix": 60,
+      "date_alerte": "2026-11-17T11:59:16.592426+01:00"
     }
   ]
 }
