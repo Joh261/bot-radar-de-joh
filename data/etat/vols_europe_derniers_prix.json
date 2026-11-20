@@ -1,18 +1,6 @@
 {
   "historique": [
     {
-      "cle": "CDG-MIL-35",
-      "route": "CDG-MIL",
-      "prix": 35,
-      "date_alerte": "2026-09-11T22:53:31.448515+02:00"
-    },
-    {
-      "cle": "ORY-MIL-60",
-      "route": "ORY-MIL",
-      "prix": 60,
-      "date_alerte": "2026-09-11T22:53:32.146008+02:00"
-    },
-    {
       "cle": "ORY-VCE-54",
       "route": "ORY-VCE",
       "prix": 54,
@@ -299,6 +287,18 @@
       "route": "ORY-MIL",
       "prix": 53,
       "date_alerte": "2026-11-20T08:47:32.349204+01:00"
+    },
+    {
+      "cle": "CDG-LON-59",
+      "route": "CDG-LON",
+      "prix": 59,
+      "date_alerte": "2026-11-20T17:47:40.967470+01:00"
+    },
+    {
+      "cle": "CDG-VCE-58",
+      "route": "CDG-VCE",
+      "prix": 58,
+      "date_alerte": "2026-11-20T17:47:41.290173+01:00"
     }
   ]
 }
