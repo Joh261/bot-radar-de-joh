@@ -1,18 +1,6 @@
 {
   "historique": [
     {
-      "cle": "ORY-IBZ-59",
-      "route": "ORY-IBZ",
-      "prix": 59,
-      "date_alerte": "2026-09-11T04:54:01.555617+02:00"
-    },
-    {
-      "cle": "CDG-LON-60",
-      "route": "CDG-LON",
-      "prix": 60,
-      "date_alerte": "2026-09-11T14:45:51.641656+02:00"
-    },
-    {
       "cle": "CDG-MIL-35",
       "route": "CDG-MIL",
       "prix": 35,
@@ -299,6 +287,18 @@
       "route": "ORY-VCE",
       "prix": 60,
       "date_alerte": "2026-11-17T11:59:16.592426+01:00"
+    },
+    {
+      "cle": "ORY-BCN-51",
+      "route": "ORY-BCN",
+      "prix": 51,
+      "date_alerte": "2026-11-20T08:47:31.821579+01:00"
+    },
+    {
+      "cle": "ORY-MIL-53",
+      "route": "ORY-MIL",
+      "prix": 53,
+      "date_alerte": "2026-11-20T08:47:32.349204+01:00"
     }
   ]
 }
